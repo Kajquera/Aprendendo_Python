@@ -1,0 +1,74 @@
+# Crie um programa que exiba menu de opcoes para voce selecionar caracteristicas de um personagem
+# para um jogo rpg, depois imprima as caracteristicas do personagem
+'''
+    [FOTO PERSONAGEM]
+    [nome: ]
+[raça] [idade] [genero]
+
+
+'''
+jogador = {
+    'nome': '',
+    'raca': '',
+    'idade':''
+}
+nome_personagem = input("Digite um nome para seu personagem: ")
+
+jogador['nome'] = nome_personagem
+
+contador = 0
+while contador < 1:
+    contador += 1
+    raca_personagem = int(input(''' 
+                            1-[Arqueiro] 2-[Mago] 3-[Guerreiro]
+                             
+                            Escolha uma raça:
+'''))
+    if raca_personagem == 1:
+        jogador['raca'] = 'Arqueiro'
+    if raca_personagem == 2:
+        jogador['raca'] = 'Mago'
+    if raca_personagem == 3:
+        jogador['raca'] = 'Guerreiro'
+    
+    if int(raca_personagem) < 1 or int(raca_personagem) > 3:
+        print('voce colocou um valor invalido, sua raça foi definida como Guerreiro como padrao !')
+        jogador['raca'] = 'Guerreiro'
+
+    idade_personagem = input("Qual a idade do seu personagem? ")
+    jogador['idade'] = idade_personagem
+
+
+
+print(f'''
+    .  ."|                            
+   /| /  |  _.----._                  
+  . |/  |.-"        ".  /|            
+ /                    \/ |__          
+|           _.-"""/        /          
+|       _.-"     /."|     /           
+ ".__.-"         "  |     \           Nome: {jogador['nome']} !
+    |              |       |          Raca: {jogador['raca']} !
+    /_      _.._   | ___  /           Idade: {jogador['idade']} !
+  ."  ""-.-"    ". |/.-.\/            
+ |    0  |    0  |     / |            
+ \      /\_     _/    "_/             
+  "._ _/   "---"       |              
+  /"""                 |              
+  \__.--                |_            
+    )          .        | ".          
+   /        _.-"\        |  ".        
+  /     _.-"             |    ".      
+ (_ _.-|                  |     |"-._.
+   "    "--.             .J     _.-'  
+           /\        _.-" | _.-'      
+          /  \__..--"   _.-'          
+         /   |      _.-'              
+        /| /\|  _.-'                  
+       / |/ _.-'                      
+      /|_.-'                          
+    _.-'                              
+
+''')
+
+
