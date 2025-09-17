@@ -1,0 +1,106 @@
+'''
+CRIE UM PAINEL ADM DE UM ESTACIONAMENTO USANDO FUNCOES
+
+faca um menu com as opcoes
+
+1 - adicionar carro
+2 - remocao de carro
+3 - ver carros no local
+4 - vagas disponiveis
+'''
+
+import os
+
+# Ver vagas disponiveis
+def verVagas():
+        for x in vagas:
+            valor = vagas[x]
+            
+            if valor != '':
+                print(f'A vaga {x} esta ocupada por um {valor}')
+            else:
+                print(f'A vaga {x} esta disponivel !')
+        pause_ate_tecla()
+                
+
+#limpa o prompt
+def limpar():
+    os.system('cls')
+
+def pause_ate_tecla():
+    """Pausa a execução do programa até que uma tecla seja pressionada."""
+    
+    print("Pressione qualquer tecla para continuar...")
+    
+    if os.name == 'nt':  # Se for Windows
+        import msvcrt
+        msvcrt.getch()
+
+# Escolher a vaga do veiculo
+
+
+# Menu de opcoes
+def painel():
+    print ('''
+    __________________________
+    |Sistema de estacionamento|
+    |_________________________|
+    |[1] Adicionar carro      |
+    |[2] Remover carro        |
+    |[3] Ver carros           |
+    |[4] Ver vagas            |
+    |[5] ENCERRAR             |
+    |_________________________|
+    ''')
+  
+vagas ={
+    '0': 'civic',
+    '1': ' ',
+    '2': ' '
+}
+
+while True:
+    limpar()
+    painel()
+
+
+    op = int(input('Digite a sua opção: '))
+
+    if op == 1:
+         limpar()
+         verVagas()
+         seletor_vaga = input('Qual vaga voce prefere? ')
+         def ver_vazia():
+             for x in vagas:
+                 vaga = vagas[x]
+                 if seletor_vaga == '2':
+                     print ('Vaga selecionada com sucesso!')
+                     vagas[x] = seletor_vaga
+                     
+                     return verVagas()
+         ver_vazia()
+            
+            
+         break
+
+              
+
+         
+                   
+         
+            
+         
+
+
+
+
+    if op == 3:
+         limpar()
+         verVagas()
+         pause_ate_tecla()
+
+    
+
+
+
+    
