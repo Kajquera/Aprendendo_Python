@@ -5,8 +5,7 @@ faca um menu com as opcoes
 
 1 - adicionar carro
 2 - remocao de carro
-3 - ver carros no local
-4 - vagas disponiveis
+3 - vagas disponiveis
 '''
 
 import os
@@ -43,7 +42,8 @@ def painel():
     |_________________________|
     ''')
   
-vagas = {'': 'vazio'}
+vagas = {'ciena': 'ocupado',
+         'golf': 'ocupado'}
 
 def novo_carro():
     adicionarCarro = input('Modelo: ')
@@ -55,10 +55,20 @@ def novo_carro():
 
 def remover_carro():
     cont = 0
+    vaga_escolha = []
     for x in vagas:
         cont += 1
-        
-        print(f'Carros nos estacionamentos: [{cont}] {x} // {vagas[x]}')
+        vaga_escolha.append(cont)
+        print(f'Carros nos estacionamentos: [{cont - 1}] {x} // {vagas[x]}')
+        continue
+    print(vaga_escolha)
+    userChoice = input('Qual carro voce deseja remover? ')
+    if userChoice in vaga_escolha:
+        vaga_remover = vagas.remove([userChoice])
+
+        print("Carro removido !")
+    
+
 
 def opcao():
     esc = input('Escolha uma opcao: ')
