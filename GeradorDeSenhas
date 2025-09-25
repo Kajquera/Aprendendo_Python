@@ -1,0 +1,76 @@
+import random 
+escolhas  = [
+    ['Maiusculas', 'Nao'],
+    ['Numeros', 'Nao'],
+    ['Simbolos', 'Nao']
+]
+letrass = 0
+def painel():
+    print(f'''
+        Caracteristicas para usar na sua senha:
+          1. Maiusculas || {escolhas[0][1]}
+          2. Numeros || {escolhas[1][1]}
+          3. Simbolos || {escolhas[2][1]}
+''')
+
+def choices():
+    try:
+        qts_letras = int(input("Quantos caracteres deve ter sua senha? "))
+        
+        if qts_letras < 8:
+            print('Quantidade minima de caracteres: 8')
+            choices()
+        painel()
+        pauseBreake = False
+        while pauseBreake == False:
+
+            try:
+                print('                                                                 digite `000` para continuar')
+                pass_choices = int(input('Digite o numero que voce deseja usar: '))
+                #PARTE DE ESCOLHAS QUE SERAO USADAS NO PROGRAMA
+                if pass_choices == 1:
+                    if escolhas[0][1] == 'sim':
+                        escolhas[0][1] = 'nao'
+                        painel()
+                    else:
+                        escolhas[0][1] = 'sim'
+                        painel()
+                if pass_choices == 2:
+                    if escolhas[1][1] == 'sim':
+                        escolhas[1][1] = 'nao'
+                        painel()
+                    else:
+                        escolhas[1][1] = 'sim'
+                        painel()
+                if pass_choices == 3:
+                    if escolhas[2][1] == 'sim':
+                        escolhas[2][1] = 'nao'
+                        painel()
+                    else:
+                        escolhas[2][1] = 'sim'
+                        painel()
+                if pass_choices == 000:
+                    print("VOCE SAIU")
+                    break
+            
+                
+            except:
+                print('Digite apenas numero')
+                painel()
+        
+    except:
+        print('Digite apenas numeros!')
+        choices()
+############### CORPO
+
+choices() #funcao de escolhas
+
+password = 0
+assciString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+assciSimbolos = '!@#$%&?'
+assciNumeros = '123456789'
+print(letrass)
+finalAssci = '>>'
+
+print(finalAssci)
+    
