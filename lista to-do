@@ -1,0 +1,42 @@
+#Lista to-do
+
+def painel():
+    cont = 0
+    for i, setTask in enumerate(task):
+        cont += 1
+    print('''
+            [1] ||| Adicionar tarefa
+            [2] ||| Remover tarefa
+            [3] ||| Ver tarefas
+            [4] ||| Encerrar programa
+          ''' f'                                        Quantidade de itens: {cont}')
+task = []
+def tarefaList():
+            if not task:
+                print('Nenhuma tarefa adicionada !')
+            else:
+                for i, setTask in enumerate(task):
+                    print(f'[{i}] // {setTask}')
+while True:
+
+    painel()
+    usuario = input('Digite uma opçao: ')
+    if usuario == '1':
+        print('Aperte enter para voltar! ')
+        setTask = input('TAREFA:       ')
+        task.append(setTask)
+        print('|            ADICIONADO !!!            |')
+
+    elif usuario == '2':
+        tarefaList()
+        if task:
+             try:
+                  removeChoice = int(input("Digite o numero da tarefa que deseja remover: "))
+                  remove = task.pop(removeChoice)
+             except(ValueError, IndexError):
+                  print('Numero invalido, favor digite um numero da lista')
+            
+        
+
+    elif usuario == '3':        
+        tarefaList()
