@@ -1,38 +1,40 @@
-inventario = ["Espada Longa", "Escudo de Madeira", "Poção de Vida"]
+# NOVO INVENTÁRIO: LISTA DE DICIONÁRIOS
+inventario_detalhado = [
+    {"nome": "Espada Longa", "peso": 5, "valor": 500},
+    {"nome": "Poção de Vida", "peso": 0.5, "valor": 50},
+]
 
 def mostrar_inventario():
-    for itens in enumerate(inventario, +1):
-        print(itens)
+    print("--- INVENTÁRIO ATUAL ---")
+    for indice, item in enumerate(inventario_detalhado, 1):
+        nome = item['nome']
+        peso = item['peso']
+        valor = item['valor'] # Acessando o valor pela chave!
+        print(f"|{indice}| {nome} (Peso: {peso}kg | Valor: {valor} moedas)")
+    print("*" * 40 + "\n")
 
 def adicionar_item():
-    mostrar_inventario()
-    appItem = input('Qual o novo item? ')
-    inventario.append(appItem)
+    print("Qual o novo item que voce desaja adicionar ?")
+    newItem = input("item: ")
+    pesoItem = input("peso do item: ")
+    novo_item = {"nome": newItem, "peso": pesoItem, "valor":0}
+    inventario_detalhado.append(novo_item)
 
 def remover_item():
     mostrar_inventario()
-    removeChoice = int(input("Qual item deseja remover ? "))
-    del(inventario[removeChoice -1])
+    print("Digite qual item voce deseja remover")
+    delChoice = int(input("Numero: "))
+    del(inventario_detalhado[delChoice -1])
 
-
-
-print('''
-|1| Para abrir inventario
-|2| Para adicionar novo item
-|3| Para remover item
-
-''')
 while True:
-    choice = input("Digite sua opçao: ")
-    if choice == '1':
-        mostrar_inventario()
-        continue
-    if choice == '2':
-        adicionar_item()
-        continue
-    if choice == '3':
-        remover_item()
-        continue
-    else:
-        print('Opcao nao encontrada!')
 
+    print("|1| Para abrir inventario")
+    print("|2| Para adicionar item")
+    print("|3| Para remover item")
+    choice = int(input("Digite sua opcao: "))
+    if choice == 1:
+        mostrar_inventario()
+    elif choice == 2:
+        adicionar_item()
+    elif choice == 3:
+        remover_item()
