@@ -1,0 +1,35 @@
+# Validador de senha forte
+senhaForte = [
+    {'Max8': 'false'},
+    {'Maiusc': 'false'},
+    {'Minusc': 'false'},
+    {'Digitos': 'false'}
+]
+senha = input("Digite uma senha:  ").strip()
+
+if len(senha) >= 8:
+    senhaForte[0]['Max8'] = 'True'
+
+if any(c.isupper() for c in senha):
+    senhaForte[1]['Maiusc'] = 'True'
+if any(c.islower() for c in senha):
+    senhaForte[2]['Minusc'] = 'True'
+if any(c.isdigit() for c in senha):
+    senhaForte[3]['Digitos'] = 'True'
+
+falhas = True
+
+print("CONTROLE DE FALHAS: ")
+print("_" * 70)
+
+for regras in senhaForte:
+    for requisito, status in regras.items():
+        if status == 'false':
+            print(f"❌ REQUISITO FALHOU: {requisito}")
+            falhas = False 
+        else:
+            print(f"✅ REQUISITO PASSOU: {requisito}")
+if falhas:
+    print("🎉 SENHA FORTE: Sua senha é segura!")
+else:
+    print("⚠️ SENHA FRACA: Corrija os requisitos falhos acima.")
