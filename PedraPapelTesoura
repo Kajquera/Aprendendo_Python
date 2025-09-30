@@ -1,0 +1,61 @@
+import random
+jogadas = ['pedra', 'papel', 'tesoura']
+
+#JOGADA COMPUTADOR
+def jogada_pc():
+    return random.choice(jogadas)  
+botChoice = jogada_pc()
+#jogada player
+
+import random
+
+opcoes = ['pedra', 'papel', 'tesoura']
+pontos_computador = 0
+pontos_jogador = 0
+
+# Função para a escolha do computador
+def escolha_computador():
+    return random.choice(opcoes)
+
+# --- LOOP PRINCIPAL DO JOGO ---
+while pontos_jogador < 3 and pontos_computador < 3:
+    
+    print("\n" + "="*40)
+    print(f"PLACAR: Jogador {pontos_jogador} x {pontos_computador} Computador")
+    print("="*40)
+    
+    # 1. Pede a jogada do jogador
+    playerChoice = input('Digite sua jogada (pedra, papel, tesoura): ').lower().strip()
+    
+
+    if playerChoice not in opcoes:
+        print("❌ Jogada inválida. Escolha pedra, papel ou tesoura.")
+        continue
+        
+
+    botChoice = escolha_computador()
+
+    print(f'\nComputador: {botChoice} || Player: {playerChoice}')
+
+    if playerChoice == botChoice:
+        print("— EMPATE!")
+
+    elif (botChoice == 'pedra' and playerChoice == 'tesoura') or \
+         (botChoice == 'papel' and playerChoice == 'pedra') or \
+         (botChoice == 'tesoura' and playerChoice == 'papel'):
+        
+        print("— Computador venceu esta rodada!")
+        pontos_computador += 1
+
+    else:
+        print("— Jogador venceu esta rodada!")
+        pontos_jogador += 1
+
+# --- FIM DO JOGO ---
+
+print("\n" + "#"*40)
+if pontos_jogador == 3:
+    print(f" PARABÉNS! JOGADOR VENCEU O JOGO com {pontos_jogador} a {pontos_computador}!")
+else:
+    print(f" COMPUTADOR VENCEU O JOGO com {pontos_computador} a {pontos_jogador}!")
+print("#"*40)
