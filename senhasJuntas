@@ -1,0 +1,21 @@
+# Gerador de senha
+# Animal deve ser MINUSCULO
+# Cor deve ser MAIUSCULA
+# '-' para separar
+
+
+animal = []
+cor = []
+numero = 0
+
+print('Bem vindo ao gerador de senha')
+animalEsc = str(input("Qual seu animal favorito? ").strip(' ').lower())
+corEsc = str(input("Digite sua cor favorita: ").strip(' ').upper())
+numeroEsc = int(input("Digite seu numero da sorte: ").strip(' '))
+
+senha_nova = animalEsc+'-' + corEsc +'-'+ str(numeroEsc)
+
+print('='*30)
+print(f"Senha gerada: {senha_nova}")
+print(f"Cumprimento da senha: {len(senha_nova)}")
+print('='*30)
