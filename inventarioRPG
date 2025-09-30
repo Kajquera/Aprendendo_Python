@@ -1,0 +1,38 @@
+inventario = ["Espada Longa", "Escudo de Madeira", "Poção de Vida"]
+
+def mostrar_inventario():
+    for itens in enumerate(inventario, +1):
+        print(itens)
+
+def adicionar_item():
+    mostrar_inventario()
+    appItem = input('Qual o novo item? ')
+    inventario.append(appItem)
+
+def remover_item():
+    mostrar_inventario()
+    removeChoice = int(input("Qual item deseja remover ? "))
+    del(inventario[removeChoice -1])
+
+
+
+print('''
+|1| Para abrir inventario
+|2| Para adicionar novo item
+|3| Para remover item
+
+''')
+while True:
+    choice = input("Digite sua opçao: ")
+    if choice == '1':
+        mostrar_inventario()
+        continue
+    if choice == '2':
+        adicionar_item()
+        continue
+    if choice == '3':
+        remover_item()
+        continue
+    else:
+        print('Opcao nao encontrada!')
+
