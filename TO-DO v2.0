@@ -1,0 +1,89 @@
+#lista to-do 2.0
+tarefas = []
+def mostrar_tarefas():
+    indice = 1
+    print('|    LISTA DE TAREFAS    |')
+    print('='*25)
+    if len(tarefas) == 0:
+         print("LISTA VAZIA ! ! ! ")
+         print('='*25)
+    for i in tarefas:
+         print(f'|{indice}| - {i}'.upper())
+         indice += 1
+    print('='*25)
+    return tarefas
+def concluir_tarefa():
+     mostrar_tarefas()
+     try:
+        escolha = int(input('Digite o numero: '))
+        tarefa_ok = tarefas[escolha -1]
+        if tarefa_ok.find('✅') != -1:
+             print('='*40)
+             print("Esta tarefa ja esta concluida ! ! !")
+             print('='*40)
+             return
+        print(f'Tarefa: {tarefa_ok} - foi concluida ✅ !'.upper())
+        tarefa_ok += ' ✅'
+        tarefas[escolha -1] = tarefa_ok
+        input('ENTER para continuar . . .')
+        mostrar_tarefas()
+     except ValueError:
+        print('Numero invalido')
+
+def remover_tarefa():
+     mostrar_tarefas()
+     try:
+        remove_choice = int(input("Digite o numero: "))
+        tarefas.pop(remove_choice -1)
+        mostrar_tarefas()
+        print("Tarefa removida ✅")
+     except ValueError:
+          print("Numero invalido")
+
+def menu():
+        print(f'''
+        1. Mostrar tarefas
+        2. Adicionar Tarefas
+        3. Marcar como concluida
+        4. Remover tarefa
+        5. Remover todas tarefas
+        6. Sair
+        ''')
+def adicionar_tarefa():
+     x = str(input('Tarefa: '))
+     tarefas.append(x)
+     print('='*50)
+     print('Sua nova tarefa foi adicionada ! 🆗✅')
+     print('='*50)
+
+#   ESTRUTURA DO PROGRAMA   #
+while True:
+    menu()  
+    try:
+         escolha = int(input('Escolha uma opcao: '))
+         if escolha == 1:
+              mostrar_tarefas()
+         elif escolha == 2:
+              adicionar_tarefa()
+         elif escolha == 3:
+              concluir_tarefa()
+         elif escolha == 4:
+              remover_tarefa()
+         elif escolha == 5 :
+              indice = 0
+              x = input("Deseja resetar sua lista de tarefas? (sim/nao) ")
+              if x == 'sim' or x == 's':
+                while len(tarefas) > 0:
+                     tarefas.pop(0)
+                print('='*40)
+                print("SUA LISTA DE TAREFAS FOI RESETADA ! ! !")
+                print('='*40)
+              else:
+                   print('Escolha invalida, tente novamente !') 
+         elif escolha == 6:
+              print("PROGRAMA ENCERRADO, ATE MAIS 🔰") 
+              break
+    except:
+         print('Digite apenas numeros !')
+         input('Enter para continuar. . .')
+    
