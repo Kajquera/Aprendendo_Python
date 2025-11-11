@@ -1,0 +1,65 @@
+# CODIGO AINDA NAO TEM INTEGRACAO DO TKinter
+
+
+lista_de_tarefas = ['colocar comida pros cachorro', 'andar de bicicleta']
+
+def adicionar_tarefa():
+    print("Digite a sua tarefa ! ")
+    nova_tarefa = input("> ")
+    lista_de_tarefas.append(nova_tarefa)
+    print("Tarefa adicionada com sucesso ! ! !")
+def remover_tarefa():
+    print("|    Tarefas em sua lista:   |")
+    cont = 1
+    for i in lista_de_tarefas:
+        print(f"|[{cont}] {i}")
+        cont += 1
+    print("Qual tarefa voce deseja remover ?")
+    tarefa_remove = int(input("> "))
+    try:
+        if tarefa_remove > len(lista_de_tarefas):
+            print("Nao achei essa tarefa na lista, tente novamente !")
+            return
+        else:
+            lista_de_tarefas.pop(tarefa_remove -1)
+            print(f"Tarefa foi removida ! ! !")
+    except:
+        print("ERROR TENTE NOVAMENTE")
+
+def ver_tarefas():
+    print("|    Tarefas em sua lista:   |")
+    cont = 1
+    for i in lista_de_tarefas:
+        print(f"|[{cont}] {i}")
+        cont += 1
+    print("Enter para continuar . . .")
+    input(" ")
+
+def principal_loop():
+    while True:
+        print("|    LISTA DE TAREFAS TO-TO  |")
+        print("|1. Adicionar tarefa")
+        print("|2. Remover tarefa")
+        print("|3. Ver tarefas")
+        print("|4. Encerrar programa")
+        escolha_str = input("> ")
+        try:
+            escolha = int(escolha_str)
+                   
+            if escolha == 1:
+                adicionar_tarefa()
+            if escolha == 2:
+                remover_tarefa()
+            if escolha == 3:
+                ver_tarefas()
+            if escolha == 4:
+                print("Programa finalizado !")
+                break
+            else:
+                print("Escolha numeros apenas de 1 a 4")
+        except ValueError:
+            print("Digite apenas numeros. . . ")
+            print("Enter para continuar")
+            input(" ")
+
+principal_loop()
